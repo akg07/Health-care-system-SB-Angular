@@ -62,7 +62,7 @@ User has all access except Specialization, Department, Employee pages If you try
 
 
 ### Patinet List
-![Image of patient list](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%205.png)
+![Image of patient list](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%205%20-%20updated.jpg)
 
 ### Bill List
 ![Image of Bill list](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%206.png)
