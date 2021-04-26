@@ -46,3 +46,8 @@ it will create only **User role** profile for you
 ### Access
 Admin has all accesses <br>
 User has all access except Specialization, Department, Employee pages If you try using url then it will show **you are not authorised**
+
+
+## Images
+Login Page
+![Image of Login](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%201.png)
