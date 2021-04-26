@@ -33,6 +33,7 @@ insert into roles values(2, 'ROLE_ADMIN');
 
 insert into users values(1, '$2a$10$nuyV4m3SpBYuqzdRvQK4iO1PI9O0SkLyHQP2YB8CFksVJirzGrDT2', 'admin'); **Password : admin123**
 insert into users values(2, '$2a$10$ef4yjYkFjmAjnQk/GPecK.VxaNmpe6yPfBoZh9dcW1.uzf1zFYemu', 'user');' **Password : user123**
+<br>
 **This is Encrypted Password**
 
 insert into user_roles values(2, 1);
@@ -43,5 +44,5 @@ http://localhost:4200/signup
 it will create only **User role** profile for you
 
 ### Access
-Admin has all accesses
+Admin has all accesses <br>
 User has all access except Specialization, Department, Employee pages If you try using url then it will show **you are not authorised**
