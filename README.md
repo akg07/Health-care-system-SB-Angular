@@ -68,7 +68,7 @@ User has all access except Specialization, Department, Employee pages If you try
 ![Image of Bill list](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%206.png)
 
 ### Invoice
-![Image of Invoice](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%207%20-%20Invoice.png)
+![Image of Invoice](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%207%20-%20Invoice%20-%20updated.jpg)
 
 
 ### Contact Us
