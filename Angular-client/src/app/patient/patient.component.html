@@ -1,0 +1,150 @@
+<app-index></app-index>
+<div class="container">
+  <div class="text-center">
+    <h1>Patient Registration Page</h1>
+    <p>Register the Patient</p>
+  </div>
+  <div class="row justify-content-center align-items-center">
+    <div class="col-10 col-md-8 col-lg-6">
+      <!-- form -->
+      <form
+        name="patForm"
+        class="form-example"
+        (ngSubmit)="p.form.valid && onSubmit()"
+        #p="ngForm"
+        novalidate
+      >
+        <!-- pid-->
+        <!-- <div class="form-group">
+          <label for="pid">Patient Id : </label>
+          <input
+            type="number"
+            class="form-control"
+            id="pid"
+            name="pid"
+            [(ngModel)]="pat.pid"
+            #pid="ngModel"
+            [ngClass]="{ 'is-invalid': p.submitted && pid.invalid }"
+            required
+          />
+          <div *ngIf="p.submitted && pid.invalid" class="invalid-feedback">
+            <div *ngIf="pid.errors.required">Patient Id is required</div>
+          </div>
+        </div> -->
+
+        <!-- Patient Name -->
+        <div class="form-group">
+          <label for="pName">Name : </label>
+          <input
+            type="text"
+            class="form-control"
+            id="pName"
+            name="pName"
+            [(ngModel)]="pat.pName"
+            #pName="ngModel"
+            [ngClass]="{ 'is-invalid': p.submitted && pName.invalid }"
+            required
+          />
+          <div *ngIf="p.submitted && pName.invalid" class="invalid-feedback">
+            <div *ngIf="pName.errors.required">Patient Name is required</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="pDob">DOB : </label>
+          <input
+            type="date"
+            class="form-control"
+            id="pDob"
+            name="pDob"
+            [(ngModel)]="pat.pDob"
+            #pDob="ngModel"
+            [ngClass]="{ 'is-invalid': p.submitted && pDob.invalid }"
+            required
+          />
+          <div *ngIf="p.submitted && pDob.invalid" class="invalid-feedback">
+            <div *ngIf="pDob.errors.required">Patient DOB is required</div>
+          </div>
+        </div>
+
+        <!-- Patient No. -->
+        <div class="form-group">
+          <label for="pMobileNo">Contact No : </label>
+          <input
+            type="number"
+            class="form-control"
+            id="pMobileNo"
+            name="pMobileNo"
+            [(ngModel)]="pat.pMobileNo"
+            #pMobileNo="ngModel"
+            [ngClass]="{ 'is-invalid': p.submitted && pMobileNo.invalid }"
+            required
+          />
+          <div
+            *ngIf="p.submitted && pMobileNo.invalid"
+            class="invalid-feedback"
+          >
+            <div *ngIf="pMobileNo.errors.required">Mobile no. is required</div>
+          </div>
+        </div>
+
+        <!-- Patient Address -->
+        <div class="form-group">
+          <label for="pAdd">Address : </label>
+          <input
+            type="text"
+            class="form-control"
+            id="pAdd"
+            name="pAdd"
+            [(ngModel)]="pat.pAdd"
+            #pAdd="ngModel"
+            [ngClass]="{ 'is-invalid': p.submitted && pAdd.invalid }"
+            required
+          />
+          <div *ngIf="p.submitted && pAdd.invalid" class="invalid-feedback">
+            <div *ngIf="pAdd.errors.required">Patient Address is required</div>
+          </div>
+        </div>
+
+        <!-- Doctor -->
+        <div class="form-group">
+          <label for="doc">Doctor Id : </label>
+          <input
+            type="number"
+            class="form-control"
+            id="doc"
+            name="doc"
+            [(ngModel)]="pat.doc.doctorId"
+            #doc="ngModel"
+            [ngClass]="{ 'is-invalid': p.submitted && doc.invalid }"
+            required
+          />
+          <div *ngIf="p.submitted && doc.invalid" class="invalid-feedback">
+            <div *ngIf="doc.errors.required">Doctor Id is required</div>
+          </div>
+        </div>
+
+        <!-- Test -->
+        <div class="form-group">
+          <label for="test">Test Id : </label>
+          <input
+            type="number"
+            class="form-control"
+            id="test"
+            name="test"
+            [(ngModel)]="pat.test.tid"
+            #test="ngModel"
+            [ngClass]="{ 'is-invalid': p.submitted && test.invalid }"
+            required
+          />
+          <!-- && ((pat.test | json) == '{}') -->
+          <div *ngIf="p.submitted && test.invalid" class="invalid-feedback">
+            <div *ngIf="test.errors.required">Test Id is required</div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-customized">Save</button>
+      </form>
+    </div>
+  </div>
+</div>

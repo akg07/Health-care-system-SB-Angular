@@ -1,0 +1,51 @@
+<app-index></app-index>
+        <div class="text-center">
+            <h1>Ward Page</h1>
+            <p></p>
+        </div>
+        <div class="container h-100">
+            <div class="row h-100 justify-content-center align-items-center">
+                <div class="col-10 col-md-8 col-lg-6">
+                    <!-- form -->
+                    <form name="WardForm" class="form-example" (ngSubmit)="w.form.valid && onSubmit()" #w="ngForm" novalidate>
+                        <!-- wId -->
+                        <!-- <div class="form-group">
+                            <label for="wid">Ward Id : </label>
+                            <input type="number" class="form-control" id="wid" name="wid" [(ngModel)]="ward.wid" #wid="ngModel" [ngClass]="{'is-invalid' : w.submitted && wid.invalid}" required />
+                            <div *ngIf="w.submitted && wid.invalid" class="invalid-feedback">
+                                <div *ngIf="wid.errors.required">Ward Id is required</div>
+                            </div>
+                        </div> -->
+
+                        <!-- wardName  -->
+                        <div class="form-group">
+                            <label for="wardName">Name : </label>
+                            <input type="text" class="form-control" id="wardName" name="wardName" [(ngModel)]="ward.wardName" #wardName="ngModel" [ngClass]="{'is-invalid' : w.submitted && wardName.invalid}" required />
+                            <div *ngIf="w.submitted && wardName.invalid" class="invalid-feedback">
+                                <div *ngIf="wardName.errors.required">Name is required</div>
+                            </div>
+                        </div>
+
+                        <!-- doc -->
+                        <div class="form-group">
+                            <label for="doctor">Doctor Id : </label>
+                            <input type="number" class="form-control" id="doctor" name="doctor" [(ngModel)]="ward.doctor.doctorId" #doctor="ngModel" [ngClass]="{'is-invalid' : w.submitted && doctor.invalid}" required />
+                            <div *ngIf="w.submitted && doctor.invalid" class="invalid-feedback">
+                                <div *ngIf="doctor.errors.required">Doctor Id is required</div>
+                            </div>
+                        </div>
+
+                        <!-- pat -->
+                        <div class="form-group">
+                            <label for="patient">Patient Id : </label>
+                            <input type="number" class="form-control" id="patient" name="patient" [(ngModel)]="ward.patient.pid" #patient="ngModel" [ngClass]="{'is-invalid' : w.submitted && patient.invalid}" required />
+                            <div *ngIf="w.submitted && patient.invalid" class="invalid-feedback">
+                                <div *ngIf="patient.errors.required">Patient Id is required</div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary btn-customized">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>

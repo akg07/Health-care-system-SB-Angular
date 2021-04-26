@@ -1,0 +1,128 @@
+<app-index></app-index>
+<div *ngIf="showAdminBoard">
+<div class="text-center">
+  <h1>Employee Registration Page</h1>
+  <p>Register the Employee</p>
+</div>
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="col-10 col-md-8 col-lg-6">
+      <!-- form -->
+      <form
+        name="empForm"
+        class="form-example"
+        (ngSubmit)="e.form.valid && onSubmit()"
+        #e="ngForm"
+        novalidate
+      >
+        <!-- Emp Id -->
+        <!-- <div class="form-group">
+          <label for="empId">Employee Id : </label>
+          <input
+            type="number"
+            class="form-control"
+            id="empId"
+            name="empId"
+            [(ngModel)]="emp.empId"
+            #empId="ngModel"
+            [ngClass]="{ 'is-invalid': e.submitted && empId.invalid }"
+            required
+          />
+          <div *ngIf="e.submitted && empId.invalid" class="invalid-feedback">
+            <div *ngIf="empId.errors.required">Employee Id is required</div>
+          </div>
+        </div> -->
+
+        <!-- Emp Name -->
+        <div class="form-group">
+          <label for="empName">Name : </label>
+          <input
+            type="text"
+            class="form-control"
+            id="empName"
+            name="empName"
+            [(ngModel)]="emp.empName"
+            #empName="ngModel"
+            [ngClass]="{ 'is-invalid': e.submitted && empName.invalid }"
+            required
+          />
+          <div *ngIf="e.submitted && empName.invalid" class="invalid-feedback">
+            <div *ngIf="empName.errors.required">Employee Name is required</div>
+          </div>
+        </div>
+
+        <!-- empPno -->
+        <div class="form-group">
+          <label for="empMobileNo">Mobile No : </label>
+          <input
+            type="number"
+            class="form-control"
+            id="empMobileNo"
+            name="empMobileNo"
+            [(ngModel)]="emp.empMobileNo"
+            #empMobileNo="ngModel"
+            [ngClass]="{ 'is-invalid': e.submitted && empMobileNo.invalid }"
+            required
+          />
+          <div
+            *ngIf="e.submitted && empMobileNo.invalid"
+            class="invalid-feedback"
+          >
+            <div *ngIf="empMobileNo.errors.required">
+              Mobile no. is required
+            </div>
+          </div>
+        </div>
+
+        <!-- empAdd -->
+        <div class="form-group">
+          <label for="empAdd">Address : </label>
+          <input
+            type="text"
+            class="form-control"
+            id="empAdd"
+            name="empAdd"
+            [(ngModel)]="emp.empAdd"
+            #empAdd="ngModel"
+            [ngClass]="{ 'is-invalid': e.submitted && empAdd.invalid }"
+            required
+          />
+          <div *ngIf="e.submitted && empAdd.invalid" class="invalid-feedback">
+            <div *ngIf="empAdd.errors.required">
+              Employee Address is required
+            </div>
+          </div>
+        </div>
+
+        <!-- dept -->
+        <div class="form-group">
+          <label for="department">Department Id : </label>
+          <input
+            type="number"
+            class="form-control"
+            id="department"
+            name="department"
+            [(ngModel)]="emp.department.deptId"
+            #department="ngModel"
+            [ngClass]="{ 'is-invalid': e.submitted && department.invalid }"
+            required
+          />
+          <div
+            *ngIf="e.submitted && department.invalid"
+            class="invalid-feedback"
+          >
+            <div *ngIf="department.errors.required">
+              Department Id is required
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-customized">Save</button>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+<div *ngIf="!showAdminBoard">
+  <h3>You are not authorised</h3>
+</div>

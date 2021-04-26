@@ -1,0 +1,31 @@
+<app-index></app-index>
+<div *ngIf="showAdminBoard">
+<div >
+    <div class="container">
+        <div class="text-center">
+        <h3>Department form</h3>
+    </div>
+    <div class="row justify-content-center align-items-center">
+            <div class="col-10 col-md-8 col-lg-6">
+<form name="deptForm" (ngSubmit)="d.form.valid && onSubmit()" #d="ngForm" novalidate>
+    
+    <!-- deptName -->
+    <div class="form-group">
+        <label for="deptName">Dept Name</label>
+        <input type="text" name="deptName" id="deptName" class="form-control" [(ngModel)]="dept.deptName" #deptName="ngModel" [ngClass]=" {'is-invalid' : d.submitted && deptName.invalid} " required />
+        <div class="invalid-feedback" *ngIf="d.submitted && deptName.invalid">
+            <div *ngIf="deptName.errors.required">Department Name is required</div>
+        </div>
+    </div>
+
+    <button class="btn btn-primary">Save</button>
+    
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div *ngIf="!showAdminBoard">
+    <h3>You are Not authorised</h3>
+</div>

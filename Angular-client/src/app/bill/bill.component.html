@@ -1,0 +1,43 @@
+<app-index></app-index>
+<div class="container">
+  <div class="text-center">
+    <h1>Bill Registration Page</h1>
+    <p></p>
+  </div>
+  <div class="row justify-content-center align-items-center">
+    <div class="col-10 col-md-8 col-lg-6">
+      <!-- form -->
+      <form name="billForm" class="form-example" (ngSubmit)="b.form.valid && onSubmit()" #b="ngForm" novalidate>
+
+        <!-- Bill Amount -->
+        <div class="form-group">
+            <label for="bAmt">Amount : </label>
+            <input type="number" class="form-control" id="bAmt" name="bAmt" [(ngModel)]="bill.bAmt" #bAmt="ngModel" [ngClass]="{ 'is-invalid': b.submitted && bAmt.invalid }" required />
+            <div *ngIf="b.submitted && bAmt.invalid" class="invalid-feedback">
+                <div *ngIf="bAmt.errors.required">Amount is required</div>
+            </div>
+        </div>
+
+        <!-- Patient Id -->
+        <div class="form-group">
+            <label for="patient">Patient id : </label>
+            <input type="number" class="form-control" id="patient" name="patient" [(ngModel)]="bill.patient.pid" #patient="ngModel" [ngClass]="{ 'is-invalid': b.submitted && patient.invalid }" required />
+            <div *ngIf="b.submitted && patient.invalid" class="invalid-feedback">
+                <div *ngIf="patient.errors.required">Amount is required</div>
+            </div>
+        </div>
+
+        <!-- Insurance Id -->
+        <div class="form-group">
+            <label for="insurance">insurance id : </label>
+            <input type="number" class="form-control" id="insurance" name="insurance" [(ngModel)]="bill.insurance.iNo" #insurance="ngModel" [ngClass]="{ 'is-invalid': b.submitted && insurance.invalid }" required />
+            <div *ngIf="b.submitted && insurance.invalid" class="invalid-feedback">
+                <div *ngIf="insurance.errors.required">Amount is required</div>
+            </div>
+        </div>
+
+        <button class="btn btn-primary btn-customized">{{btn}}</button>
+      </form>
+    </div>
+  </div>
+</div>

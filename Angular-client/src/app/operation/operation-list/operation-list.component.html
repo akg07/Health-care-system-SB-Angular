@@ -1,0 +1,54 @@
+<app-index></app-index>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="#">Operation List {{ desc }}</a>
+  <!-- Links -->
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item" style="margin-right: 15px">
+      <button class="btn btn-primary" (click)="gotoOperation()">
+        New Operation
+      </button>
+    </li>
+    <div class="form-inline">
+      <input
+        class="form-control mr-sm-2"
+        type="text"
+        [(ngModel)]="search"
+        placeholder="Search"
+      />
+      <!-- <button class="btn btn-success" type="submit">Search</button> -->
+    </div>
+  </ul>
+</nav>
+<br />
+<div class="container">
+  <table class="table table-striped table-bordered table-hover">
+    <tr style="background: lightgreen">
+      <th>ID</th>
+      <th>Name</th>
+      <th>Doctor</th>
+      <th>Patient</th>
+      <th>ACTIONS</th>
+    </tr>
+    <tr *ngFor="let op of opList | operationFilter: search">
+      <td>{{ op.oid }}</td>
+      <td>{{ op.oName }}</td>
+      <td>{{ op.doctor.doctorName }}</td>
+      <td>{{ op.patient.pName }}</td>
+      <td>
+        <button (click)="getOperation(op.oid)" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-edit">Update</span>
+        </button>
+        &nbsp;|&nbsp;
+        <button
+          (click)="deleteOperation(op.oid)"
+          class="btn btn-default btn-sm"
+        >
+          <span class="glyphicon glyphicon-trash">Delete</span>
+        </button>
+      </td>
+    </tr>
+    <tr *ngIf="opList && opList.length == 0">
+      <td colspan="5">No records found!</td>
+    </tr>
+  </table>
+</div>

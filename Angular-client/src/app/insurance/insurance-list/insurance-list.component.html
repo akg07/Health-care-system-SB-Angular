@@ -1,0 +1,44 @@
+<app-index></app-index>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">Insurance List {{desc}}</a>
+    <!-- Links -->
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item" style="margin-right: 15px;">
+        <button class="btn btn-primary" (click)="gotoInsurance()">New Insurance</button>
+      </li>
+      <div class="form-inline">
+        <input class="form-control mr-sm-2" type="text" [(ngModel)]="search" placeholder="Search">
+      <!-- <button class="btn btn-success" type="submit">Search</button> -->
+      </div>
+    </ul>
+  </nav>
+  <br>
+  <div class="container">
+    <table class="table table-striped table-bordered table-hover">
+      <tr style="background: lightgreen">
+        <th>Insurance number</th>
+        <th>Insurance amount</th>
+        <th>Insurance expiry date</th>
+        <th>Patient</th>
+        <th>ACTIONS</th>
+      </tr>
+      <tr *ngFor="let insurance of insuranceList | insuranceFilter: search">
+        <td>{{ insurance.iNo }}</td>
+        <td>{{ insurance.iAmt }}</td>
+        <td>{{ insurance.iExpiryDate }}</td>
+        <td>{{ insurance.patient.pName}}</td>
+        <td>
+          <button (click)="getInsurance(insurance.iNo)" class="btn btn-info">
+          Update
+        </button>
+        &nbsp;&nbsp;
+        <!-- <button (click)="deleteInsurance(insurance.iNo)" class="btn btn-danger">
+          Delete
+        </button> -->
+        </td>
+      </tr>
+      <tr *ngIf="insuranceList && insuranceList.length == 0">
+        <td colspan="5">No records found!</td>
+      </tr>
+    </table>
+  </div>

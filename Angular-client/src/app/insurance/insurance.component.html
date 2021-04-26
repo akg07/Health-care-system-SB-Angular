@@ -1,0 +1,51 @@
+<app-index></app-index>
+<div class="container">
+    <div class="text-center">
+<h1>Insurance Page</h1>
+</div>
+    <div class="row justify-content-center align-items-center">
+        <div class="col-10 col-md-8 col-lg-6">
+<form name="insForm" (ngSubmit)="i.form.valid && onSubmit()" #i="ngForm" novalidate>
+
+    <!-- insId -->
+    <!-- <div class="form-group">
+        <label for="iNo">Insurance Id</label>
+        <input type="number" name="iNo" class="form-control" [(ngModel)]="ins.iNo" #iNo="ngModel" [ngClass]="{'is-invalid' : i.submitted && iNo.invalid }" required />
+        <div *ngIf="i.submitted && iNo.invalid" class="invalid-feedback">
+            <div *ngIf="iNo.errors.required">Insurance id is required</div>
+        </div>
+    </div> -->
+
+    <!-- amt -->
+    <div class="form-group">
+        <label for="iAmt">Amount</label>
+        <input type="number" name="iAmt" class="form-control" [(ngModel)]="ins.iAmt" #iAmt="ngModel" [ngClass]="{'is-invalid' : i.submitted && iAmt.invalid }" required />
+        <div *ngIf="i.submitted && iAmt.invalid" class="invalid-feedback">
+            <div *ngIf="iAmt.errors.required">amount is required</div>
+        </div>
+    </div>
+
+    <!-- date -->
+    <div class="form-group">
+        <label for="iExpiryDate">Date</label>
+        <input type="date" name="iExpiryDate" class="form-control" [(ngModel)]="ins.iExpiryDate" #iExpiryDate="ngModel" [ngClass]="{'is-invalid' : i.submitted && iExpiryDate.invalid }" required />
+        <div *ngIf="i.submitted && iExpiryDate.invalid" class="invalid-feedback">
+            <div *ngIf="iExpiryDate.errors.required">Date is required</div>
+        </div>
+    </div>
+
+    <!-- patient -->
+    <div class="form-group">
+        <label for="patient">Patient Id</label>
+        <input type="number" name="patient" class="form-control" [(ngModel)]="ins.patient.pid" #patient="ngModel" [ngClass]="{'is-invalid' : i.submitted && patient.invalid }" required />
+        <div *ngIf="i.submitted && patient.invalid" class="invalid-feedback">
+            <div *ngIf="patient.errors.required">Patient id is required</div>
+        </div>
+    </div>
+
+    <button class="btn btn-primary">Save</button>
+</form>
+</div>
+</div>
+</div>
+<br><br><br>

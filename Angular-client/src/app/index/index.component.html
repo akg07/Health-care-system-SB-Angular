@@ -1,0 +1,29 @@
+<div style="background-color: lightskyblue" id="all">
+  <header class="header">
+    <h1>Hospital Management System</h1>
+
+    <div class="menu" id="menu">
+      <a (click)="home()">Home</a>
+      <a (click)="contact()">Contact</a>
+      <a (click)="about()">About us</a>
+      <a (click)="logout()">Logout</a>
+    </div>
+  </header>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">×</a>
+    <a (click)="patinetList()">Patient</a>
+    <a (click)="doctorList()">Doctor</a>
+    <a (click)="wardList()">Ward</a>
+    <a (click)="departmentList()" *ngIf="showAdminBoard">Department</a>
+    <a (click)="specializationList()" *ngIf="showAdminBoard">Specialization</a>
+    <a (click)="insuranceList()">Insurance</a>
+    <a (click)="billList()">Bill</a>
+    <a (click)="operationList()">Operation</a>
+    <a (click)="testList()">Test</a>
+    <a (click)="medicosList()">Medicos</a>
+    <a (click)="employeeList()" *ngIf="showAdminBoard">Employee</a>
+  </div>
+  <span class="hamburger" id="hamburger" (click)="openNav()">☰ </span>
+</div>
+<router-outlet></router-outlet>

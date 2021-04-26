@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* .img{
+    background-image: url("../assets/Image/image.jpg");
+    background-position: center;
+    background-size: cover;
+    position: fixed;
+    min-width: 100%;
+    background-color: antiquewhite;
+} */
+
+/* body {
+  font-family: "Lato", sans-serif;
+  background-size: cover;
+  background-image: url("/assest/image.jpg");
+  background-repeat: no-repeat;
+} */
+/* .inventory-body{
+    position: fixed;
+    min-width: 100%;
+    background-image: url("/assets/image.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    background-size: cover;
+} */
+h2,
+p,
+span {
+  color: #444242;
+}
+
+.sidenav {
+  text-align: left;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: lightseagreen;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 30px;
+}
+
+.sidenav a {
+  text-decoration:none;
+  font-family: monospace;
+  text-transform:uppercase;
+  font-size: 25px;
+  color: #fff;
+  display:-webkit-flex;
+  transition: 0.3s;
+  padding: 10px;
+  
+}
+
+.sidenav a:hover,
+.offcanvas a:focus {
+  color: #e97516;
+  font-size: 35px;
+}
+
+.hamburger {
+  font-size: 50px;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
+.closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px !important;
+  margin-left: 50px;
+}
+
+.header {
+  position: relative;
+}
+.header h1 {
+  padding: 40px;
+  background-color: white;
+  opacity: 0.5;
+  text-align: center;
+  font-display:inherit ;
+ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+ color:rgb(0, 55, 128);
+ font-size: 40px;
+}
+
+.menu {
+  width: fit-content;
+  background-color: transparent;
+  position: absolute;
+  right: 0;
+  top: 85px;
+}
+
+.menu a {
+  margin: auto;
+  margin-top: 50px;
+  top: 50px;
+  text-decoration:teal;
+  font-family:serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  padding: 10px 10px;
+}
+
+.menu a:hover {
+  color: black;
+  background-color: white;
+  border-radius: 25px;
+}

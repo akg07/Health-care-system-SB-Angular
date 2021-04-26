@@ -1,0 +1,91 @@
+<app-index></app-index>
+<!-- <h1>Test Page</h1>
+
+<form name="testForm" (ngSubmit)="t.form.valid && onSubmit()" #t="ngForm" novalidate>
+
+
+    <div class="form-group">
+        <label for="testId">Test Id</label>
+        <input type="number" name="testId" class="form-control" [(ngModel)]="test.testId" #testId="ngModel" [ngClass]="{'is-invalid' : t.submitted && testId.invalid }" required />
+        <div *ngIf="t.submitted && testId.invalid" class="invalid-feedback">
+            <div *ngIf="testId.errors.required">Test id is required</div>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="testName">Name</label>
+        <input type="text" name="testName" class="form-control" [(ngModel)]="test.testName" #testName="ngModel" [ngClass]="{'is-invalid' : t.submitted && testName.invalid }" required />
+        <div *ngIf="t.submitted && testName.invalid" class="invalid-feedback">
+            <div *ngIf="testName.errors.required">Name is required</div>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="date">Date</label>
+        <input type="text" name="date" class="form-control" [(ngModel)]="test.date" #date="ngModel" [ngClass]="{'is-invalid' : t.submitted && date.invalid }" required />
+        <div *ngIf="t.submitted && date.invalid" class="invalid-feedback">
+            <div *ngIf="date.errors.required">Date is required</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="doc">Doctor Id</label>
+        <input type="number" name="doc" class="form-control" [(ngModel)]="test.doc" #doc="ngModel" [ngClass]="{'is-invalid' : t.submitted && doc.invalid }" required />
+        <div *ngIf="t.submitted && doc.invalid" class="invalid-feedback">
+            <div *ngIf="doc.errors.required">Doctor id is required</div>
+        </div>
+    </div>
+
+    <button class="btn btn-primary">Save</button>
+</form> -->
+<div class="container">
+    <div class="text-center">
+        <h1>Test Page</h1>
+    </div>
+<div class="row justify-content-center align-items-center">
+            <div class="col-10 col-md-8 col-lg-6">
+<form name="testForm" (ngSubmit)="t.form.valid && onSubmit()" #t="ngForm" novalidate>
+
+    <!-- testId -->
+    <!-- <div class="form-group">
+        <label for="tid">Test Id</label>
+        <input type="number" name="tid" class="form-control" [(ngModel)]="test.tid" #tid="ngModel" [ngClass]="{'is-invalid' : t.submitted && tid.invalid }" required />
+        <div *ngIf="t.submitted && tid.invalid" class="invalid-feedback">
+            <div *ngIf="tid.errors.required">Test id is required</div>
+        </div>
+    </div> -->
+
+    <!-- testName -->
+    <div class="form-group">
+        <label for="tName">Name</label>
+        <input type="text" name="tName" class="form-control" [(ngModel)]="test.tName" #tName="ngModel" [ngClass]="{'is-invalid' : t.submitted && tName.invalid }" required />
+        <div *ngIf="t.submitted && tName.invalid" class="invalid-feedback">
+            <div *ngIf="tName.errors.required">Name is required</div>
+        </div>
+    </div>
+
+    <!-- date -->
+    <div class="form-group">
+        <label for="tDate">Date</label>
+        <input type="date" name="tDate" class="form-control" [(ngModel)]="test.tDate" #tDate="ngModel" [ngClass]="{'is-invalid' : t.submitted && tDate.invalid }" required />
+        <div *ngIf="t.submitted && tDate.invalid" class="invalid-feedback">
+            <div *ngIf="tDate.errors.required">Date is required</div>
+        </div>
+    </div>
+
+    <!-- doc -->
+    <div class="form-group">
+        <label for="doctor">Doctor Id</label>
+        <input type="number" name="doctor" class="form-control" [(ngModel)]="test.doctor.doctorId" #doctor="ngModel" [ngClass]="{'is-invalid' : t.submitted && doctor.invalid }" required />
+        <div *ngIf="t.submitted && doctor.invalid" class="invalid-feedback">
+            <div *ngIf="doctor.errors.required">Doctor id is required</div>
+        </div>
+    </div>
+
+    <button class="btn btn-primary">Save</button>
+</form>
+</div>
+</div>
+</div>

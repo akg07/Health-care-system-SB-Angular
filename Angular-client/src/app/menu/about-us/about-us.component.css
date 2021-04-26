@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+  }
+  
+  html {
+    box-sizing: border-box;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  .column {
+    float: left;
+    width: 23%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+  }
+  .column:hover{
+      /* transform: scale(1.01); */
+  }
+  
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 8px;
+  }
+  
+  .about-section {
+    padding: 3px;
+    text-align: center;
+    background-color: #2670a1;
+    color: white;
+  }
+  
+  .container {
+    padding: 0 16px;
+
+  }
+  
+  .container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .title {
+    color: grey;
+  }
+  
+  .button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    margin-right: 10px;
+    color: white;
+    background-color: rgb(129, 131, 127);
+    text-align: center;
+    cursor: pointer;
+    width: 40%;
+  }
+  
+  .button:hover {
+    background-color: #555;
+  }
+  .images{
+      height: 180px;
+      width: 100px;
+  }
+  .main-text{
+      text-align:  center;
+      color: black;
+      font-family:'Times New Roman', Times, serif;
+      margin: 30px;
+  }
+  
+  @media screen and (max-width: 955px) {
+    .column {
+      width: 45%;
+      display: block;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    .column {
+      width: 100%;
+      display: block;
+    }
+  }
+  

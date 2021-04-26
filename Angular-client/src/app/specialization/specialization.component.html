@@ -1,0 +1,28 @@
+<app-index></app-index>
+<div *ngIf="showAdminBoard">
+<div class="container">
+    <div class="text-center">
+        <h3>specialization form</h3>
+    </div>
+        <div class="row justify-content-center align-items-center">
+            <div class="col-10 col-md-8 col-lg-6">
+<form name="specForm" (ngSubmit)="s.form.valid && onSubmit()" #s="ngForm" novalidate>
+
+    <!-- specName -->
+    <div class="form-group">
+        <label for="speciality">Spec Name</label>
+        <input type="text" name="speciality" id="speciality" class="form-control" [(ngModel)]="spec.speciality" #speciality="ngModel" [ngClass]=" {'is-invalid' : s.submitted && speciality.invalid} " required />
+        <div class="invalid-feedback" *ngIf="s.submitted && speciality.invalid">
+            <div *ngIf="speciality.errors.required">specialization Name is required</div>
+        </div>
+    </div>
+
+    <button class="btn btn-primary">Save</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div *ngIf="!showAdminBoard">
+    <h3>You are not authorised</h3>
+</div>

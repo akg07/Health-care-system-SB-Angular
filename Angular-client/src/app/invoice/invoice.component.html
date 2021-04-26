@@ -1,0 +1,45 @@
+<app-index></app-index>
+<div class="container">
+    <div class="text-center">
+        <h3>Invoice</h3>
+    </div>
+
+    <div>
+        <label><b>Bill ID : </b></label>&nbsp;{{bill.bId}}
+    </div>
+    <div>
+        <label><b>Amount : </b></label>&nbsp;{{bill.bAmt}}
+    </div>
+    <div>
+        <label><b>Insurance ID : </b></label>&nbsp;{{ins.iAmt}} ({{ins.iNo}})
+    </div>
+    <div>
+        <label><b>Patient ID : </b></label>&nbsp;{{pat.pid}}
+    </div>
+    <div>
+        <label><b>Patient Name : </b></label>&nbsp;{{pat.pName}}
+    </div>
+    <div>
+        <label><b>Patient Contact No. : </b></label>&nbsp;{{pat.pMobileNo}}
+    </div>
+    <div>
+        <label><b>Patient DOB. : </b></label>&nbsp;{{pat.pDob}}
+    </div>
+    <div>
+        <label><b>Patient Address : </b></label>&nbsp;{{pat.pAdd}}
+    </div>
+    <div>
+        <label><b>Doctor Name : </b></label>&nbsp;{{doc.doctorName}} ({{doc.doctorId}})
+    </div>
+    <div>
+        <label><b>Test Name : </b></label>&nbsp;{{test.tName}} ({{test.tid}})
+    </div>
+
+    <div>
+        <label><b>Date: </b></label>&nbsp;&nbsp;&nbsp;{{bill.billDate}}
+    </div>
+    <br><br>
+    <button class="btn btn-info" (click)="goBack()">Back to List</button>
+    &nbsp;&nbsp;&nbsp;
+    <button class="btn btn-primary" (click)="goHome()">Home</button>
+</div>
