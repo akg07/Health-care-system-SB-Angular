@@ -1,5 +1,5 @@
 <app-index></app-index>
-<div *ngIf="showAdminBoard">
+<div *ngIf="showAdminBoard" style="margin-top: 8%;">
 <div class="text-center">
   <h1>Employee Registration Page</h1>
   <p>Register the Employee</p>
@@ -96,25 +96,12 @@
 
         <!-- dept -->
         <div class="form-group">
-          <label for="department">Department Id : </label>
-          <input
-            type="number"
-            class="form-control"
-            id="department"
-            name="department"
-            [(ngModel)]="emp.department.deptId"
-            #department="ngModel"
-            [ngClass]="{ 'is-invalid': e.submitted && department.invalid }"
-            required
-          />
-          <div
-            *ngIf="e.submitted && department.invalid"
-            class="invalid-feedback"
-          >
-            <div *ngIf="department.errors.required">
-              Department Id is required
-            </div>
-          </div>
+          <label for="department">Select Department</label>
+          <select name="department" class="form-control" [(ngModel)]="emp.department.deptId">
+            <option [value]="dept.deptId" *ngFor="let dept of deptList">
+              {{dept.deptId}}  {{dept.deptName}}
+            </option>
+          </select>
         </div>
 
         <button class="btn btn-primary btn-customized">Save</button>
@@ -123,6 +110,6 @@
   </div>
 </div>
 </div>
-<div *ngIf="!showAdminBoard">
+<div *ngIf="!showAdminBoard" style="margin-top: 7.3%;">
   <h3>You are not authorised</h3>
 </div>

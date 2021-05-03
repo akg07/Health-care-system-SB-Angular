@@ -1,5 +1,5 @@
 <app-index></app-index>
-<div *ngIf="showAdminBoard">
+<div *ngIf="showAdminBoard" style="margin-top: 7.3%;">
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <a class="navbar-brand" href="#">Employee List {{ desc }}</a>
   <!-- Links -->
@@ -41,17 +41,17 @@
       <td>
         <button
           (click)="getEmployee(employee.empId)"
-          class="btn btn-default btn-sm"
+          class="btn btn-danger"
         >
-          <span class="glyphicon glyphicon-edit">Update</span>
+          update
         </button>
-        &nbsp;|&nbsp;
+        <!-- &nbsp;|&nbsp;
         <button
           (click)="deleteEmployee(employee.empId)"
           class="btn btn-default btn-sm"
         >
           <span class="glyphicon glyphicon-trash">Delete</span>
-        </button>
+        </button> -->
       </td>
     </tr>
     <tr *ngIf="employeeList && employeeList.length == 0">
@@ -60,6 +60,6 @@
   </table>
 </div>
 </div>
-<div *ngIf="!showAdminBoard">
+<div *ngIf="!showAdminBoard" style="margin-top: 7.3%;">
   <h3>You are not authorised</h3>
 </div>

@@ -1,61 +1,5 @@
 <app-index></app-index>
-<!-- <div class="container">
-<h1>Med Page</h1>
-<div class="col-10 col-md-8 col-lg-6">
-<form name="medForm" (ngSubmit)="m.form.valid && onSubmit()" #m="ngForm" novalidate> -->
-
-    <!-- medId -->
-    <!-- <div class="form-group">
-        <label for="medId">Med Id</label>
-        <input type="number" name="medId" class="form-control" [(ngModel)]="med.medId" #medId="ngModel" [ngClass]="{'is-invalid' : m.submitted && medId.invalid }" required />
-        <div *ngIf="m.submitted && medId.invalid" class="invalid-feedback">
-            <div *ngIf="medId.errors.required">Med id is required</div>
-        </div>
-    </div> -->
-
-    <!-- report -->
-    <!-- <div class="form-group">
-        <label for="report">report </label>
-        <input type="text" name="report" class="form-control" [(ngModel)]="med.report" #report="ngModel" [ngClass]="{'is-invalid' : m.submitted && report.invalid }" required />
-        <div *ngIf="m.submitted && report.invalid" class="invalid-feedback">
-            <div *ngIf="report.errors.required">Med report is required</div>
-        </div>
-    </div> -->
-    
-    <!-- date -->
-    <!-- <div class="form-group">
-        <label for="date">date</label>
-        <input type="text" name="date" class="form-control" [(ngModel)]="med.date" #date="ngModel" [ngClass]="{'is-invalid' : m.submitted && date.invalid }" required />
-        <div *ngIf="m.submitted && date.invalid" class="invalid-feedback">
-            <div *ngIf="date.errors.required">Med date is required</div>
-        </div>
-    </div> -->
-    
-    <!-- doc -->
-    <!-- <div class="form-group">
-        <label for="doc">doc Id</label>
-        <input type="number" name="doc" class="form-control" [(ngModel)]="med.doc" #doc="ngModel" [ngClass]="{'is-invalid' : m.submitted && doc.invalid }" required />
-        <div *ngIf="m.submitted && doc.invalid" class="invalid-feedback">
-            <div *ngIf="doc.errors.required">doc ID is required</div>
-        </div>
-    </div> -->
-
-    <!-- pat -->
-    <!-- <div class="form-group">
-        <label for="pat">pat Id</label>
-        <input type="number" name="pat" class="form-control" [(ngModel)]="med.pat" #pat="ngModel" [ngClass]="{'is-invalid' : m.submitted && pat.invalid }" required />
-        <div *ngIf="m.submitted && pat.invalid" class="invalid-feedback">
-            <div *ngIf="pat.errors.required">pat id is required</div>
-        </div>
-    </div>
-
-    <button class="btn btn-primary">Save</button>
-</form>
-</div>
-</div>
-<br><br> -->
-
-<div class="container">
+<div class="container" style="margin-top: 8%;">
     <div class="text-center">
 <h1>Med Page</h1>
 </div>
@@ -63,21 +7,30 @@
 <div class="col-10 col-md-8 col-lg-6">
 <form name="medForm" (ngSubmit)="m.form.valid && onSubmit()" #m="ngForm" novalidate>
 
-    <!-- mId -->
-    <!-- <div class="form-group">
-        <label for="mId">Med Id</label>
-        <input type="number" name="mId" class="form-control" [(ngModel)]="med.mId" #mId="ngModel" [ngClass]="{'is-invalid' : m.submitted && mId.invalid }" required />
-        <div *ngIf="m.submitted && mId.invalid" class="invalid-feedback">
-            <div *ngIf="mId.errors.required">Med id is required</div>
-        </div>
-    </div> -->
-
     <!-- mRecord -->
     <div class="form-group">
-        <label for="mRecord">report </label>
+        <label for="mRecord">Med </label>
         <input type="text" name="mRecord" class="form-control" [(ngModel)]="med.mRecord" #mRecord="ngModel" [ngClass]="{'is-invalid' : m.submitted && mRecord.invalid }" required />
         <div *ngIf="m.submitted && mRecord.invalid" class="invalid-feedback">
             <div *ngIf="mRecord.errors.required">Med report is required</div>
+        </div>
+    </div>
+
+    <!-- quantity -->
+    <div class="form-group">
+        <label for="quantity">quantity </label>
+        <input type="number" name="quantity" class="form-control" [(ngModel)]="med.quantity" #quantity="ngModel" [ngClass]="{'is-invalid' : m.submitted && quantity.invalid }" required />
+        <div *ngIf="m.submitted && quantity.invalid" class="invalid-feedback">
+            <div *ngIf="quantity.errors.required">Med quantity is required</div>
+        </div>
+    </div>
+
+    <!-- price -->
+    <div class="form-group">
+        <label for="price">price </label>
+        <input type="number" name="price" class="form-control" [(ngModel)]="med.price" #price="ngModel" [ngClass]="{'is-invalid' : m.submitted && price.invalid }" required />
+        <div *ngIf="m.submitted && price.invalid" class="invalid-feedback">
+            <div *ngIf="price.errors.required">Med price is required</div>
         </div>
     </div>
     
@@ -90,22 +43,24 @@
         </div>
     </div>
     
-    <!-- doctor -->
+    <!-- Doctor -->
     <div class="form-group">
-        <label for="doctor">doc Id</label>
-        <input type="number" name="doctor" class="form-control" [(ngModel)]="med.doctor.doctorId" #doctor="ngModel" [ngClass]="{'is-invalid' : m.submitted && doctor.invalid }" required />
-        <div *ngIf="m.submitted && doctor.invalid" class="invalid-feedback">
-            <div *ngIf="doctor.errors.required">doc ID is required</div>
-        </div>
+        <label for="doctor">Doctor Id : </label>
+        <select name="doctor" class="form-control" [(ngModel)]="med.doctor.doctorId">
+            <option [value]="doctor.doctorId" *ngFor="let doctor of docList">
+                {{doctor.doctorId}} {{doctor.doctorName}}
+            </option>
+        </select>
     </div>
 
-    <!-- patient -->
+    <!-- Patient -->
     <div class="form-group">
-        <label for="patient">pat Id</label>
-        <input type="number" name="patient" class="form-control" [(ngModel)]="med.patient.pid" #patient="ngModel" [ngClass]="{'is-invalid' : m.submitted && patient.invalid }" required />
-        <div *ngIf="m.submitted && patient.invalid" class="invalid-feedback">
-            <div *ngIf="patient.errors.required">pat id is required</div>
-        </div>
+        <label for="doctor"> Select Patient </label>
+        <select name="doctor" class="form-control" [(ngModel)]="med.patient.pid">
+            <option [value]="pat.pid" *ngFor="let pat of patientList">
+                {{pat.pid}} {{pat.pName}}
+            </option>
+        </select>
     </div>
 
     <button class="btn btn-primary">{{btn}}</button>

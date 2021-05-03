@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { MedicosService } from 'src/app/service/medicos/medicos.service';
 import { TokenStorageService } from 'src/app/service/token-storage.service';
@@ -15,9 +15,10 @@ export class MedicosListComponent implements OnInit {
   search;
   medList:Medicos[];
 
-  constructor(private router: Router, private ms: MedicosService, private tss: TokenStorageService) { }
+  constructor(private router: Router, private ms: MedicosService, private tss: TokenStorageService, private renderer: Renderer2) { }
 
   ngOnInit(): void {
+    this.renderer.setStyle(document.body, 'background-color', '#C1F8FF');
     if(this.tss.getToken()){
       this.getList();
     }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { DepartmentService } from 'src/app/service/department/department.service';
 import { TokenStorageService } from 'src/app/service/token-storage.service';
@@ -24,9 +24,11 @@ export class DepartmentListComponent implements OnInit {
   private roles: string[];
 
 
-  constructor(private router: Router, private ds: DepartmentService, private tokenStorageService: TokenStorageService) { }
+  constructor(private router: Router, private ds: DepartmentService, private tokenStorageService: TokenStorageService,
+    private renderer: Renderer2) { }
 
   ngOnInit(): void {
+    this.renderer.setStyle(document.body, 'background-color', '#C1F8FF');
     this.isLoggedIn = !!this.tokenStorageService.getToken();
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
@@ -42,7 +44,6 @@ export class DepartmentListComponent implements OnInit {
   getList() {
     this.ds.getAllDepartment().subscribe((list) => {
       this.departmentList = list;
-      console.log(list);
     },
       error => {
         console.log(error);

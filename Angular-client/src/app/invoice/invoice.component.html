@@ -1,45 +1,116 @@
 <app-index></app-index>
-<div class="container">
-    <div class="text-center">
-        <h3>Invoice</h3>
-    </div>
+<div class="body" style="margin-top: 7.3%;">
+<div class="page" size="A4" id="pdf">
+    <button (click)="goBack()" class="btn btn-primary" style="margin-top: 5px; margin-left: 300px;">Back</button>
+    <button (click)="goHome()" class="btn btn-primary" style="margin-top: 5px; margin-left: 5px;">Home</button>
+    <button (click)="print()" class="btn btn-primary" style="margin-top: 5px; margin-left: 5px;">Print</button>
+        <div class="p-5">
+            <section class="top-content bb d-flex justify-content-between">
+                <!-- <div class="logo">
+                    <img src="logo.png" alt="" class="img-fluid">
+                </div> -->
+                <div class="top-left">
+                    <!-- <div class="graphic-path">
+                        <p>Invoice</p>
+                    </div> -->
+                    <div class="position-relative">
+                        <p><b> Invoice No. <span>{{bill.bId}}</span></b></p>
+                    </div>
+                </div>
+            </section>
 
-    <div>
-        <label><b>Bill ID : </b></label>&nbsp;{{bill.bId}}
-    </div>
-    <div>
-        <label><b>Amount : </b></label>&nbsp;{{bill.bAmt}}
-    </div>
-    <div>
-        <label><b>Insurance ID : </b></label>&nbsp;{{ins.iAmt}} ({{ins.iNo}})
-    </div>
-    <div>
-        <label><b>Patient ID : </b></label>&nbsp;{{pat.pid}}
-    </div>
-    <div>
-        <label><b>Patient Name : </b></label>&nbsp;{{pat.pName}}
-    </div>
-    <div>
-        <label><b>Patient Contact No. : </b></label>&nbsp;{{pat.pMobileNo}}
-    </div>
-    <div>
-        <label><b>Patient DOB. : </b></label>&nbsp;{{pat.pDob}}
-    </div>
-    <div>
-        <label><b>Patient Address : </b></label>&nbsp;{{pat.pAdd}}
-    </div>
-    <div>
-        <label><b>Doctor Name : </b></label>&nbsp;{{doc.doctorName}} ({{doc.doctorId}})
-    </div>
-    <div>
-        <label><b>Test Name : </b></label>&nbsp;{{test.tName}} ({{test.tid}})
-    </div>
+            <section class="store-user mt-5">
+                <div class="col-10">
+                    <div class="row bb pb-3">
+                        <div class="col-7">
+                            <p>Doctor,</p>
+                            <h2>{{doc.doctorName}}</h2>
+                            <p class="address"> {{doc.department.deptName}}</p>
+                            <div class="txn mt-2">+91 - {{doc.doctorPhoneNO}} </div>
+                            <!-- <div class="txn mt-2"> {{spec.speciality}} </div> -->
+                        </div>
+                        <div class="col-5">
+                            <p>Patient,</p>
+                            <h2> {{pat.pName}} </h2>
+                            <p class="address"> {{pat.pAdd}} </p>
+                            <div class="txn mt-2">+91 - {{pat.pMobileNo}} </div>
+                        </div>
+                    </div>
+                    <div class="row extra-info pt-3">
+                        <div class="col-7">
+                            <p>Doctor ID: <span> {{doc.doctorId}} </span></p>
+                        </div>
+                        <div class="col-5">
+                            <p>Date of Birth: <span> {{pat.pDob}} </span></p>
+                            <p>Patient ID: <span> {{pat.pid}} </span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-    <div>
-        <label><b>Date: </b></label>&nbsp;&nbsp;&nbsp;{{bill.billDate}}
+            <section class="product-area mt-4">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <td>Item Description</td>
+                            <td>Price</td>
+                            <td>Quantity</td>
+                            <td>Total</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let med of medList">
+                            <td>
+                                <div class="media">
+                                    <div class="media-body">
+                                        <p class="mt-0 title"> {{med.mRecord}} </p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td> {{med.price}} </td>
+                            <td> {{med.quantity}} </td>
+                            <td> {{med.total}} </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="balance-info">
+                <div class="row">
+                    <div class="col-8">
+                        <p class="m-0 font-weight-bold"> Note: </p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In delectus, adipisci vero est dolore praesentium.</p>
+                    </div>
+                    <div class="col-4">
+                        <table class="table border-0 table-hover">
+                            <tr>
+                                <td>Treatment Charge:</td>
+                                <td> {{bill.bAmt}} </td>
+                            </tr>
+                            <tr>
+                                <td>Med Total:</td>
+                                <td> {{gtotal}} </td>
+                            </tr>
+                            <tr>
+                                <td>Tax:</td>
+                                <td>Null</td>
+                            </tr>
+                            <tfoot>
+                                <tr style="font-size: 25px;">
+                                    <td>Total:</td>
+                                    <td>{{gtotal + bill.bAmt}}</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <br><br><br>
+                        <!-- Signature -->
+                        <div class="col-12">
+                            <p class="text-center m-0"> Signature </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
     </div>
-    <br><br>
-    <button class="btn btn-info" (click)="goBack()">Back to List</button>
-    &nbsp;&nbsp;&nbsp;
-    <button class="btn btn-primary" (click)="goHome()">Home</button>
 </div>
+<!-- <button class="btn btn-primary" (click)="getPDF()" style="margin-left: 50px;">Get PDF</button> -->

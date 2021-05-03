@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { TestService } from 'src/app/service/test/test.service';
 import { TokenStorageService } from 'src/app/service/token-storage.service';
@@ -15,9 +15,10 @@ export class TestListComponent implements OnInit {
   search;
   testList:Test[];
 
-  constructor( private router:Router,private ts:TestService, private tss: TokenStorageService) { }
+  constructor( private router:Router,private ts:TestService, private tss: TokenStorageService, private renderer: Renderer2) { }
 
   ngOnInit() {
+    this.renderer.setStyle(document.body, 'background-color', '#C1F8FF');
     if(this.tss.getToken()){
       this.getList();
     }

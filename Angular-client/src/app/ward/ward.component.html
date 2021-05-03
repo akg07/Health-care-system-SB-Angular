@@ -1,5 +1,5 @@
 <app-index></app-index>
-        <div class="text-center">
+        <div class="text-center" style="margin-top: 8%;">
             <h1>Ward Page</h1>
             <p></p>
         </div>
@@ -26,22 +26,24 @@
                             </div>
                         </div>
 
-                        <!-- doc -->
+                        <!-- Doctor -->
                         <div class="form-group">
                             <label for="doctor">Doctor Id : </label>
-                            <input type="number" class="form-control" id="doctor" name="doctor" [(ngModel)]="ward.doctor.doctorId" #doctor="ngModel" [ngClass]="{'is-invalid' : w.submitted && doctor.invalid}" required />
-                            <div *ngIf="w.submitted && doctor.invalid" class="invalid-feedback">
-                                <div *ngIf="doctor.errors.required">Doctor Id is required</div>
-                            </div>
+                            <select name="doctor" class="form-control" [(ngModel)]="ward.doctor.doctorId">
+                                <option [value]="doctor.doctorId" *ngFor="let doctor of docList">
+                                    {{doctor.doctorId}} {{doctor.doctorName}}
+                                </option>
+                            </select>
                         </div>
 
-                        <!-- pat -->
+                        <!-- Patient -->
                         <div class="form-group">
-                            <label for="patient">Patient Id : </label>
-                            <input type="number" class="form-control" id="patient" name="patient" [(ngModel)]="ward.patient.pid" #patient="ngModel" [ngClass]="{'is-invalid' : w.submitted && patient.invalid}" required />
-                            <div *ngIf="w.submitted && patient.invalid" class="invalid-feedback">
-                                <div *ngIf="patient.errors.required">Patient Id is required</div>
-                            </div>
+                            <label for="doctor"> Select Patient </label>
+                            <select name="doctor" class="form-control" [(ngModel)]="ward.patient.pid">
+                                <option [value]="pat.pid" *ngFor="let pat of patientList">
+                                    {{pat.pid}} {{pat.pName}}
+                                </option>
+                            </select>
                         </div>
 
                         <button class="btn btn-primary btn-customized">Save</button>

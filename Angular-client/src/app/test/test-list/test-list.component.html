@@ -1,5 +1,5 @@
 <app-index></app-index>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="margin-top: 7.3%;">
   <a class="navbar-brand" href="#">Test List {{ desc }}</a>
   <!-- Links -->
   <ul class="navbar-nav ml-auto">
@@ -33,13 +33,13 @@
       <td>{{ test.tDate }}</td>
       <td>{{ test.doctor.doctorName }}</td>
       <td>
-        <button (click)="getTest(test.tid)" class="btn btn-default btn-sm">
-          <span class="glyphicon glyphicon-edit">Update</span>
+        <button (click)="getTest(test.tid)" class="btn btn-danger">
+          Update
         </button>
-        &nbsp;|&nbsp;
+        <!-- &nbsp;|&nbsp;
         <button (click)="deleteTest(test.tid)" class="btn btn-default btn-sm">
           <span class="glyphicon glyphicon-trash">Delete</span>
-        </button>
+        </button> -->
       </td>
     </tr>
     <tr *ngIf="testList && testList.length == 0">

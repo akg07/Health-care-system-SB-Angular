@@ -23,11 +23,15 @@ export class DoctorService {
     return this.http.delete(`${this.baseUrl}/${id}`);
   }
 
-getAllDoctor():Observable<any>{
+  getAllDoctor():Observable<any>{
     return this.http.get(`${this.baseUrl}`);
   }
 
   getDoctorById(id:number) :Observable<any>{
     return this.http.get(`${this.baseUrl}/${id}`)
+  }
+
+  checkIsAvailable(doctor:any) :Observable<any>{
+    return this.http.post(`${this.baseUrl}/check`, doctor);
   }
 }

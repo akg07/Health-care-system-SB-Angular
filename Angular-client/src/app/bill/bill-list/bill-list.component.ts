@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { BillService } from 'src/app/service/bill/bill.service';
 import { TokenStorageService } from 'src/app/service/token-storage.service';
@@ -14,9 +14,11 @@ export class BillListComponent implements OnInit {
   desc:string;
   billList: Bill[];
   search;
-  constructor(private bs: BillService, private router: Router, private ts: TokenStorageService) { }
+  constructor(private bs: BillService, private router: Router, private ts: TokenStorageService,
+    private renderer: Renderer2) { }
 
   ngOnInit(): void {
+    this.renderer.setStyle(document.body, 'background-color', '#C1F8FF');
     if(this.ts.getToken()){
       this.getList();
     }

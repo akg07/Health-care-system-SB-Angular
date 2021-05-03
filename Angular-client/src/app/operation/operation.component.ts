@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Doctor } from '../doctor/Doctor';
 import { Patient } from '../patient/Patient';
+import { DoctorService } from '../service/Doctor/doctor.service';
 import { OperationService } from '../service/Opertion/operation.service';
+import { PatientService } from '../service/Patient/patient.service';
 import { TokenStorageService } from '../service/token-storage.service';
 import { Operation } from './Operation';
 
@@ -15,21 +17,27 @@ export class OperationComponent implements OnInit {
 
   id;
   btn='save'
-  op : Operation = {
-    oid: 0,
-    oName: '',
-    doctor: new Doctor(),
-    patient: new Patient() 
-  }
-  constructor(private router : Router, private os:OperationService, private route:ActivatedRoute, private tss: TokenStorageService) { }
+  docList: Doctor[];
+  patientList: Patient[];
+  op : Operation = new Operation();
+  constructor(private router : Router,
+    private os:OperationService,
+    private route:ActivatedRoute,
+    private tss: TokenStorageService,
+    private ds: DoctorService,
+    private ps: PatientService,
+    private renderer: Renderer2) { }
 
   ngOnInit(): void {
+    this.renderer.setStyle(document.body, 'background-color', '#C3E6FC');
     if(this.tss.getToken()){
       if(this.route.snapshot.params['id'] > 0){
         this.id = this.route.snapshot.params['id'];
         this.btn='Update';
         this.getOperation();
       }
+      this.getDocs();
+      this.getPatient();
     }
     else{
       this.router.navigate(['login']);
@@ -85,8 +93,22 @@ export class OperationComponent implements OnInit {
     if(this.id > 0){
       this.router.navigate(['operationList']);
     }else{
-      this.router.navigate(['medicos']);
+      this.router.navigate(['operationList']);
     }
+  }
+
+  getDocs(){
+    this.ds.getAllDoctor()
+      .subscribe(list => {
+        this.docList = list;
+      });
+  }
+
+  getPatient(){
+    this.ps.getAllPatient()
+      .subscribe(list => {
+        this.patientList = list;
+      });
   }
 
 }

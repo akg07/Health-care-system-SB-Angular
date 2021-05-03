@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { EmployeeService } from 'src/app/service/Employee/employee.service';
 import { TokenStorageService } from 'src/app/service/token-storage.service';
@@ -18,9 +18,11 @@ export class EmployeeListComponent implements OnInit {
   showAdminBoard = false;
   private roles: string[];
   
-  constructor(private router: Router, private es: EmployeeService, private tss: TokenStorageService) { }
+  constructor(private router: Router, private es: EmployeeService, private tss: TokenStorageService,
+    private renderer: Renderer2) { }
 
   ngOnInit(): void {
+    this.renderer.setStyle(document.body, 'background-color', '#C1F8FF');
     this.isLoggedIn = !!this.tss.getToken();
     if (this.isLoggedIn) {
       const user = this.tss.getUser();
@@ -36,7 +38,6 @@ export class EmployeeListComponent implements OnInit {
   getList() {
     this.es.getAllEmployee().subscribe((list) => {
       this.employeeList = list;
-      console.log(list);
     },
       error => {
         console.log(error);

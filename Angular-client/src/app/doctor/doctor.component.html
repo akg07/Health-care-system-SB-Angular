@@ -1,5 +1,5 @@
 <app-index></app-index>
-<div class="container">
+<div class="container" style="margin-top: 8%;">
     <div class="text-center">
         <h3>Doctor Page</h3>
     </div>
@@ -29,7 +29,7 @@
     <!-- docContactNo -->
     <div class="form-group">
         <label for="doctorPhoneNO">Contact No</label>
-        <input type="number" name="doctorPhoneNO" class="form-control" [(ngModel)]="doc.doctorPhoneNO" #doctorPhoneNO="ngModel" [ngClass]="{'is-invalid' : d.submitted && doctorPhoneNO.invalid }" required />
+        <input type="number" name="doctorPhoneNO" class="form-control" [(ngModel)]="doc.doctorPhoneNO" #doctorPhoneNO="ngModel" [ngClass]="{'is-invalid' : d.submitted && doctorPhoneNO.invalid }" minlength="10" required />
         <div *ngIf="d.submitted && doctorPhoneNO.invalid" class="invalid-feedback">
             <div *ngIf="doctorPhoneNO.errors.required">Contact is required</div>
         </div>
@@ -47,22 +47,28 @@
     <!-- spec -->
     <div class="form-group">
         <label for="specialization">Sepc Id</label>
-        <input type="number" name="specialization" class="form-control" [(ngModel)]="doc.specialization.specId" #specialization="ngModel" [ngClass]="{'is-invalid' : d.submitted && specialization.invalid }" required />
-        <div *ngIf="d.submitted && specialization.invalid" class="invalid-feedback">
-            <div *ngIf="specialization.errors.required">Specialization is required</div>
-        </div>
+        <select name="specialization" class="form-control" [(ngModel)]="doc.specialization.specId">
+            <!-- <option value="">Choose speciality</option> -->
+            <option [value]="spec.specId" *ngFor="let spec of specList">
+                {{spec.specId}} {{ spec.speciality }}
+            </option>
+        </select>
     </div>
 
     <!-- dept -->
     <div class="form-group">
         <label for="department">department Id</label>
-        <input type="number" name="department" class="form-control" [(ngModel)]="doc.department.deptId" #department="ngModel" [ngClass]="{'is-invalid' : d.submitted && department.invalid }" required />
-        <div *ngIf="d.submitted && department.invalid" class="invalid-feedback">
-            <div *ngIf="department.errors.required">Department is required</div>
-        </div>
+        <select name="department" class="form-control" [(ngModel)]="doc.department.deptId">
+            <!-- <option value="0">Choose department</option> -->
+            <option [value]="dept.deptId" *ngFor="let dept of deptList">
+                {{dept.deptId}} {{ dept.deptName }}
+            </option>
+        </select>
     </div>
-
+    <br>
     <button class="btn btn-primary">{{btn}}</button>
+    <button class="btn btn-info" style="margin-left: 25px;" (click) ="reset()">reset</button>
+    <br><br>
 </form>
 </div>
 </div>

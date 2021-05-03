@@ -5,6 +5,9 @@ export class Medicos{
     mId: number;
     mRecord:string;
     date:Date;
+    price: number;
+    quantity: number;
+    total: number;
     doctor: Doctor = {
         doctorId: null,
         doctorName: '',

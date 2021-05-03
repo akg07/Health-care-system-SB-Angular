@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Doctor } from '../doctor/Doctor';
 import { Patient } from '../patient/Patient';
+import { DoctorService } from '../service/Doctor/doctor.service';
+import { PatientService } from '../service/Patient/patient.service';
 import { TokenStorageService } from '../service/token-storage.service';
 import { WardService } from '../service/Ward/ward.service';
 import { Ward } from './Ward';
@@ -13,19 +15,24 @@ import { Ward } from './Ward';
 })
 export class WardComponent implements OnInit {
 
-  ward : Ward = {
-    wid: 0,
-    wardName: '',
-    doctor: new Doctor(),
-    patient: new Patient()
-  }
+  docList: Doctor[];
+  patientList: Patient[];
+  ward : Ward = new Ward();
   id;
-  constructor(private router: Router, private ws: WardService, private route: ActivatedRoute, private tss: TokenStorageService) {
+  constructor(private router: Router,
+    private ws: WardService,
+    private route: ActivatedRoute,
+    private tss: TokenStorageService,
+    private ds: DoctorService,
+    private ps: PatientService,
+    private renderer: Renderer2
+    ) {
     console.log(this.router.getCurrentNavigation().extras.state)
   }
 
 
   ngOnInit(): void {
+    this.renderer.setStyle(document.body, 'background-color', '#C3E6FC');
     if(this.tss.getToken()){
       if(history.state){
         this.ward.patient = history.state;
@@ -34,10 +41,26 @@ export class WardComponent implements OnInit {
         this.id = this.route.snapshot.params['id'];
         this.getWard();
       }
+      this.getPatient();
+      this.getDocs();
     }
     else{
       this.router.navigate(['login']);
     }
+  }
+
+  getDocs(){
+    this.ds.getAllDoctor()
+      .subscribe(list => {
+        this.docList = list;
+      });
+  }
+
+  getPatient(){
+    this.ps.getAllPatient()
+      .subscribe(list => {
+        this.patientList = list;
+      });
   }
 
   getWard(){
@@ -85,7 +108,7 @@ export class WardComponent implements OnInit {
     if(this.id > 0){
       this.router.navigate(['wardList']);
     }else{
-      this.router.navigate(['operation']);
+      this.router.navigate(['wardList']);
     }
   }
 

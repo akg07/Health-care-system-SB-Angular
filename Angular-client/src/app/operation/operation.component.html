@@ -1,47 +1,6 @@
 <app-index></app-index>
-<!-- <h1>Operation Page</h1>
 
-<form name="opForm" (ngSubmit)="o.form.valid && onSubmit()" #o="ngForm" novalidate>
-
-
-    <div class="form-group">
-        <label for="opId">Operation Id</label>
-        <input type="number" name="opId" class="form-control" [(ngModel)]="op.opId" #opId="ngModel" [ngClass]="{'is-invalid' : o.submitted && opId.invalid }" required />
-        <div *ngIf="o.submitted && opId.invalid" class="invalid-feedback">
-            <div *ngIf="opId.errors.required">Operation id is required</div>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="opName">Name</label>
-        <input type="text" name="opName" class="form-control" [(ngModel)]="op.opName" #opName="ngModel" [ngClass]="{'is-invalid' : o.submitted && opName.invalid }" required />
-        <div *ngIf="o.submitted && opName.invalid" class="invalid-feedback">
-            <div *ngIf="opName.errors.required">Operation Name is required</div>
-        </div>
-    </div>
-
-
-    <div class="form-group">
-        <label for="doc">Doctor Id</label>
-        <input type="number" name="doc" class="form-control" [(ngModel)]="op.doc" #doc="ngModel" [ngClass]="{'is-invalid' : o.submitted && doc.invalid }" required />
-        <div *ngIf="o.submitted && doc.invalid" class="invalid-feedback">
-            <div *ngIf="doc.errors.required">Doctor id is required</div>
-        </div>
-    </div>
-
-
-    <div class="form-group">
-        <label for="pat">Operation Id</label>
-        <input type="number" name="pat" class="form-control" [(ngModel)]="op.pat" #pat="ngModel" [ngClass]="{'is-invalid' : o.submitted && pat.invalid }" required />
-        <div *ngIf="o.submitted && pat.invalid" class="invalid-feedback">
-            <div *ngIf="pat.errors.required">Patient id is required</div>
-        </div>
-    </div>
-
-    <button class="btn btn-primary">Save</button>
-
-</form> -->
-<div class="contanier">
+<div class="contanier" style="margin-top: 8%;">
     <div class="text-center">
 <h1>Operation Page</h1>
 </div>
@@ -70,19 +29,21 @@
     <!-- doctor -->
     <div class="form-group">
         <label for="doctor">Doctor Id</label>
-        <input type="number" name="doctor" class="form-control" [(ngModel)]="op.doctor.doctorId" #doctor="ngModel" [ngClass]="{'is-invalid' : o.submitted && doctor.invalid }" required />
-        <div *ngIf="o.submitted && doctor.invalid" class="invalid-feedback">
-            <div *ngIf="doctor.errors.required">Doctor id is required</div>
-        </div>
+        <select name="doctor" class="form-control" [(ngModel)]="op.doctor.doctorId">
+            <option [value]="doc.doctorId" *ngFor="let doc of docList">
+                {{doc.doctorId}} {{doc.doctorName}}
+            </option>
+        </select>
     </div>
 
     <!-- patient -->
     <div class="form-group">
         <label for="patient">Patient Id</label>
-        <input type="number" name="patient" class="form-control" [(ngModel)]="op.patient.pid" #patient="ngModel" [ngClass]="{'is-invalid' : o.submitted && patient.invalid }" required />
-        <div *ngIf="o.submitted && patient.invalid" class="invalid-feedback">
-            <div *ngIf="patient.errors.required">Patient id is required</div>
-        </div>
+        <select name="patient" class="form-control" [(ngModel)]="op.patient.pid">
+            <option [value]="pat.pid" *ngFor="let pat of patientList">
+                {{pat.pid}} {{pat.pName}}
+            </option>
+        </select>
     </div>
 
     <button class="btn btn-primary">{{btn}}</button>

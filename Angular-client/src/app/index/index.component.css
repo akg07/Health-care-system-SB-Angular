@@ -1,32 +1,8 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
 }
 
-/* .img{
-    background-image: url("../assets/Image/image.jpg");
-    background-position: center;
-    background-size: cover;
-    position: fixed;
-    min-width: 100%;
-    background-color: antiquewhite;
-} */
-
-/* body {
-  font-family: "Lato", sans-serif;
-  background-size: cover;
-  background-image: url("/assest/image.jpg");
-  background-repeat: no-repeat;
-} */
-/* .inventory-body{
-    position: fixed;
-    min-width: 100%;
-    background-image: url("/assets/image.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: center;
-    background-size: cover;
-} */
 h2,
 p,
 span {
@@ -120,4 +96,233 @@ span {
   color: black;
   background-color: white;
   border-radius: 25px;
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* .img{
+    background-image: url("../assets/Image/image.jpg");
+    background-position: center;
+    background-size: cover;
+    position: fixed;
+    min-width: 100%;
+    background-color: antiquewhite;
+} */
+
+/* body {
+  font-family: "Lato", sans-serif;
+  background-size: cover;
+  background-image: url("/assest/image.jpg");
+  background-repeat: no-repeat;
+} */
+/* .inventory-body{
+    position: fixed;
+    min-width: 100%;
+    background-image: url("/assets/image.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    background-size: cover;
+} */
+h2,
+p,
+span {
+  color: #444242;
+}
+
+.sidenav {
+  text-align: left;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 7;
+  top: 0;
+  left: 0;
+  background-color: rgb(0, 0, 0);
+  background-image: linear-gradient(black, rgb(28, 28, 173));
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 30px;
+}
+
+.sidenav a {
+  text-decoration: none;
+  font-family: monospace;
+  text-transform: uppercase;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+  display: -webkit-flex;
+  transition: 0.3s;
+  padding: 10px;
+}
+
+.sidenav a:hover,
+.offcanvas a:focus {
+  color: #e97516;
+  font-size: 30px;
+}
+
+.hamburger {
+  font-size: 50px;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 5;
+}
+
+.closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px !important;
+  margin-left: 50px;
+}
+/* 
+.header {
+  position: relative;
+}
+.header h1 {
+  padding: 40px;
+  background-color: white;
+  opacity: 0.5;
+  text-align: center;
+  font-display: inherit;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: rgb(0, 55, 128);
+  font-size: 40px;
+}
+
+.menu {
+  width: fit-content;
+  background-color: transparent;
+  position: absolute;
+  right: 0;
+  top: 90px;
+}
+
+.menu a {
+  margin: auto;
+  margin-top: 50px;
+  top: 50px;
+  text-decoration: teal;
+  font-family: serif;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(255, 8, 29);
+  padding: 10px 10px;
+}
+
+.menu a:hover {
+  color: black;
+  background-color: white;
+  border-radius: 25px;
+} */
+ .header {
+  overflow: visible;
+}
+
+.menu h1 {
+  font-family :'Nosifer'; font-size: 45px;
+  color: aliceblue;
+  text-decoration-thickness: 50px;
+  font-display:inherit;
+  margin-top: 26px;
+  margin-left: 80px;
+  z-index: 20;
+}
+
+.menu h6{
+  letter-spacing: 3px;
+  margin-top: -10px;
+  margin-left: 84px;
+  color: black;
+  z-index:20;
+  
+}
+ 
+.menu {
+  width: 100%;
+  height: 16%;
+  background-color:rgb(35, 64, 196);
+  opacity: 60%;
+  position:absolute;
+  right: 0;
+  top: 00px;
+  z-index: 4;
+}
+.menu a {
+list-style-type: none;
+margin-top: -38px;
+padding: 10;
+overflow:auto;
+background-color: #333;
+float: right;
+display:grid;
+color: white;
+text-align: center;
+padding: 10px 40px;
+text-decoration: none;
+background-color: rgb(35, 64, 196);
+  cursor: pointer;
+
+}
+
+.menu a:hover {
+  background-color: rgb(6, 38, 141);
+}
+
+.dropdown {
+  float: right;
+overflow: visible;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px; 
+  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 10px 40px;
+  background-color: inherit;
+  font-family: inherit;
+  margin-top: 70px;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: rgb(6, 38, 141);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  line-height: -1;
+  line-break: strict;
+  min-width: 160px;
+  margin-top: -55%;
+  /* box-shadow: 0px 8px 16px 0px rgba(243, 240, 240, 0.2); */
+  /* z-index: 4; */
+}
+
+.dropdown-content a {
+  float: none;
+  color: rgb(255, 255, 255);
+  padding: 3px 10px;
+  text-decoration: none;
+  display: block;
+
+}
+
+.dropdown-content a:hover {
+  background-color:rgb(6, 38, 141);
+}
+
+.dropdown:hover .dropdown-content {
+  display:block;
 }

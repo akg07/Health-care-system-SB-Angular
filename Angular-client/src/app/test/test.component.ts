@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Doctor } from '../doctor/Doctor';
+import { DoctorService } from '../service/Doctor/doctor.service';
 import { TestService } from '../service/test/test.service';
 import { TokenStorageService } from '../service/token-storage.service';
 import { Test } from './Test';
@@ -12,27 +13,34 @@ import { Test } from './Test';
 })
 export class TestComponent implements OnInit {
 
-  test : Test = {
-    tid: 0,
-    tName: '',
-    tDate: '',
-    doctor: new Doctor()
-  }
-   id;
-  constructor(private router: Router,private ts:TestService,private route:ActivatedRoute, private tss: TokenStorageService) { }
+  test : Test = new Test();
+  id;
+  doctorList: Doctor[];
+
+  constructor(private router: Router,private ts:TestService,private route:ActivatedRoute, private tss: TokenStorageService, private ds: DoctorService,
+    private renderer: Renderer2) { }
 
   ngOnInit(): void {
+    this.renderer.setStyle(document.body, 'background-color', '#C3E6FC');
     if(this.tss.getToken()){
       if(this.route.snapshot.params['id']>0){
         this.id=this.route.snapshot.params['id'];
         this.getTest();
       }
+      this.getDoctorList();
     }
     else{
       this.router.navigate(['login']);
     }
-
   }
+
+  getDoctorList(){
+    this.ds.getAllDoctor()
+      .subscribe(list => {
+        this.doctorList = list;
+      });
+  }
+
   getTest(){
     this.ts.getTestById(this.id).subscribe((data)=>{
       this.test=data;

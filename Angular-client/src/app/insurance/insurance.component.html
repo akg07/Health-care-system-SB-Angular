@@ -1,20 +1,11 @@
 <app-index></app-index>
-<div class="container">
+<div class="container" style="margin-top: 8%;">
     <div class="text-center">
 <h1>Insurance Page</h1>
 </div>
     <div class="row justify-content-center align-items-center">
         <div class="col-10 col-md-8 col-lg-6">
 <form name="insForm" (ngSubmit)="i.form.valid && onSubmit()" #i="ngForm" novalidate>
-
-    <!-- insId -->
-    <!-- <div class="form-group">
-        <label for="iNo">Insurance Id</label>
-        <input type="number" name="iNo" class="form-control" [(ngModel)]="ins.iNo" #iNo="ngModel" [ngClass]="{'is-invalid' : i.submitted && iNo.invalid }" required />
-        <div *ngIf="i.submitted && iNo.invalid" class="invalid-feedback">
-            <div *ngIf="iNo.errors.required">Insurance id is required</div>
-        </div>
-    </div> -->
 
     <!-- amt -->
     <div class="form-group">
@@ -27,7 +18,7 @@
 
     <!-- date -->
     <div class="form-group">
-        <label for="iExpiryDate">Date</label>
+        <label for="iExpiryDate">Expiry Date</label>
         <input type="date" name="iExpiryDate" class="form-control" [(ngModel)]="ins.iExpiryDate" #iExpiryDate="ngModel" [ngClass]="{'is-invalid' : i.submitted && iExpiryDate.invalid }" required />
         <div *ngIf="i.submitted && iExpiryDate.invalid" class="invalid-feedback">
             <div *ngIf="iExpiryDate.errors.required">Date is required</div>
@@ -35,12 +26,13 @@
     </div>
 
     <!-- patient -->
-    <div class="form-group">
+    <div class="form-group" id="hide">
         <label for="patient">Patient Id</label>
-        <input type="number" name="patient" class="form-control" [(ngModel)]="ins.patient.pid" #patient="ngModel" [ngClass]="{'is-invalid' : i.submitted && patient.invalid }" required />
-        <div *ngIf="i.submitted && patient.invalid" class="invalid-feedback">
-            <div *ngIf="patient.errors.required">Patient id is required</div>
-        </div>
+        <select name="patient" class="form-control" [(ngModel)]="ins.patient.pid">
+            <option [value]="pat.pid" *ngFor="let pat of patList">
+                {{pat.pid}}  {{pat.pName}}
+            </option>
+        </select>
     </div>
 
     <button class="btn btn-primary">Save</button>

@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Insurance } from '../insurance/Insurance';
 import { Patient } from '../patient/Patient';
 import { BillService } from '../service/bill/bill.service';
+import { InsuranceService } from '../service/Insurance/insurance.service';
+import { PatientService } from '../service/Patient/patient.service';
 import { TokenStorageService } from '../service/token-storage.service';
 import { Bill } from './Bill';
 
@@ -22,16 +24,41 @@ export class BillComponent implements OnInit {
     insurance: new Insurance(),
     patient: new Patient()
   }
+  patientList: Patient[];
+  insList: Insurance[];
   id;
 
- constructor(private bs: BillService, private router: Router, private route: ActivatedRoute, private ts: TokenStorageService) { }
+  constructor(private bs: BillService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private ts: TokenStorageService,
+    private ps: PatientService,
+    private is: InsuranceService,
+    private renderer: Renderer2) { }
 
   ngOnInit(): void {
+    this.renderer.setStyle(document.body, 'background-color', '#C3E6FC');
     if(this.ts.getToken()){
       this.getForm();
+      this.getIns();
+      this.getPatients();
     }else{
       this.router.navigate(['login']);
     }
+  }
+
+  getPatients(){
+    this.ps.getAllPatient()
+      .subscribe(list => {
+        this.patientList = list;
+      });
+  }
+
+  getIns(){
+    this.is.getAllInsurance()
+      .subscribe(list => {
+        this.insList = list;
+      });
   }
 
   getForm(){
@@ -90,9 +117,9 @@ export class BillComponent implements OnInit {
 
   gotoNext(){
     if(this.id > 0){
-      this.router.navigate(['billList']);
+      this.router.navigate(['invoice', this.id]);
     }else{
-      this.router.navigate(['home']);
+      this.router.navigate(['invoice', this.bill.bId]);
     }
   }
 }

@@ -1,5 +1,5 @@
 <app-index></app-index>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="margin-top: 7.3%;">
   <a class="navbar-brand" href="#">Operation List {{ desc }}</a>
   <!-- Links -->
   <ul class="navbar-nav ml-auto">
@@ -27,6 +27,7 @@
       <th>Name</th>
       <th>Doctor</th>
       <th>Patient</th>
+      <th>Contact Number</th>
       <th>ACTIONS</th>
     </tr>
     <tr *ngFor="let op of opList | operationFilter: search">
@@ -34,17 +35,18 @@
       <td>{{ op.oName }}</td>
       <td>{{ op.doctor.doctorName }}</td>
       <td>{{ op.patient.pName }}</td>
+      <td> {{op.patient.pMobileNo}} </td>
       <td>
-        <button (click)="getOperation(op.oid)" class="btn btn-default btn-sm">
-          <span class="glyphicon glyphicon-edit">Update</span>
+        <button (click)="getOperation(op.oid)" class="btn btn-danger">
+          Update
         </button>
-        &nbsp;|&nbsp;
+        <!-- &nbsp;|&nbsp;
         <button
           (click)="deleteOperation(op.oid)"
           class="btn btn-default btn-sm"
         >
           <span class="glyphicon glyphicon-trash">Delete</span>
-        </button>
+        </button> -->
       </td>
     </tr>
     <tr *ngIf="opList && opList.length == 0">

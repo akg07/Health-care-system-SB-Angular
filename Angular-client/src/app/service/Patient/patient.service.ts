@@ -32,5 +32,9 @@ export class PatientService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
+  checkIsAvailable(pat:any): Observable<any>{
+    return this.http.post(`${this.baseUrl}/check`, pat);
+  }
+
 
 }

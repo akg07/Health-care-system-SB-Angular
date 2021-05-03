@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { TokenStorageService } from 'src/app/service/token-storage.service';
 import { WardService } from 'src/app/service/Ward/ward.service';
@@ -15,9 +15,10 @@ export class WardLIstComponent implements OnInit {
   search;
   wardList: Ward[];
 
-  constructor(private router: Router, private ws:  WardService, private tss: TokenStorageService) {}
+  constructor(private router: Router, private ws:  WardService, private tss: TokenStorageService, private renderer: Renderer2) {}
 
   ngOnInit(): void {
+    this.renderer.setStyle(document.body, 'background-color', '#C1F8FF');
     if(this.tss.getToken()){
       this.getList();
     }
@@ -29,7 +30,6 @@ export class WardLIstComponent implements OnInit {
   getList() {
     this.ws.getAllWard().subscribe((list) => {
       this.wardList = list;
-      console.log(list);
     },
       error => {
         console.log(error);

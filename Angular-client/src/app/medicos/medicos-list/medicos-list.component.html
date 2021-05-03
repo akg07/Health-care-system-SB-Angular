@@ -1,5 +1,5 @@
 <app-index></app-index>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="margin-top: 7.3%;">
   <a class="navbar-brand" href="#">Medicos List {{ desc }}</a>
   <!-- Links -->
   <ul class="navbar-nav ml-auto">
@@ -26,6 +26,8 @@
       <th>ID</th>
       <th>Record</th>
       <th>Date</th>
+      <th>price</th>
+      <th>Quantity</th>
       <th>Doctor</th>
       <th>Patient</th>
       <th>ACTIONS</th>
@@ -34,20 +36,22 @@
       <td>{{ med.mId }}</td>
       <td>{{ med.mRecord }}</td>
       <td>{{ med.date }}</td>
+      <td>{{ med.price}}</td>
+      <td> {{med.quantity}} </td>
       <td>{{ med.doctor.doctorName }}</td>
       <td>{{ med.patient.pName }}</td>
       <td>
-        <button (click)="getMedicos(med.oid)" class="btn btn-default btn-sm">
-          <span class="glyphicon glyphicon-edit">Update</span>
+        <button (click)="getMedicos(med.mId)" class="btn btn-danger">
+          Update
         </button>
-        &nbsp;|&nbsp;
-        <button (click)="deleteMedicos(med.oid)" class="btn btn-default btn-sm">
+        <!-- &nbsp;|&nbsp; -->
+        <!-- <button (click)="deleteMedicos(med.mId)" class="btn btn-default btn-sm">
           <span class="glyphicon glyphicon-trash">Delete</span>
-        </button>
+        </button> -->
       </td>
     </tr>
     <tr *ngIf="medList && medList.length == 0">
-      <td colspan="6">No records found!</td>
+      <td colspan="8">No records found!</td>
     </tr>
   </table>
 </div>

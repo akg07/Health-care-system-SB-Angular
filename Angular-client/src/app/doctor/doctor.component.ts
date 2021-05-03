@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Department } from '../department/Department';
+import { DepartmentService } from '../service/department/department.service';
 import { DoctorService } from '../service/Doctor/doctor.service';
+import { SpecializationService } from '../service/Specialization/specialization.service';
 import { TokenStorageService } from '../service/token-storage.service';
 import { Specialization } from '../specialization/Specialization';
 import { Doctor } from './Doctor';
@@ -15,29 +17,43 @@ export class DoctorComponent implements OnInit {
 
   btn = 'save';
 
-  doc : Doctor = {
-    doctorId:null,
-    doctorName: '',
-    doctorPhoneNO: null,
-    doctorAddress: '',
+  doc : Doctor = new Doctor();
+  spec: Specialization = new Specialization();
+  dept: Department = new Department();
 
-    department: new Department(),
-    specialization: new Specialization()
-  }
-
+  deptList: Department[];
+  specList: Specialization[];
   id;
-  constructor(private router: Router, private ds: DoctorService, private route: ActivatedRoute, private tss: TokenStorageService) { }
+  constructor(private router: Router, private ds: DoctorService, private route: ActivatedRoute, private tss: TokenStorageService, private spSer: SpecializationService, private deptSer: DepartmentService,
+    private renderer: Renderer2) { }
   
   ngOnInit(): void {
+    this.renderer.setStyle(document.body, 'background-color', '#C3E6FC');
     if(this.tss.getToken()){
       if (this.route.snapshot.params['id'] > 0) {
         this.btn = 'Update';
         this.id = this.route.snapshot.params['id'];
         this.getDoctor();
       }
+      this.getDept();
+      this.getSpec();
     }else{
       this.router.navigate(['login']);
     }
+  }
+
+  getDept(){
+    this.deptSer.getAllDepartment()
+      .subscribe(list => {
+        this.deptList = list;
+      });
+  }
+
+  getSpec(){
+    this.spSer.getAllSpecialization()
+      .subscribe(list => {
+        this.specList = list;
+      });
   }
 
   getDoctor(){
@@ -53,7 +69,9 @@ export class DoctorComponent implements OnInit {
 	  if(this.id>0){
       this.update();
     }else{
-      this.save();
+      // this.save();
+      console.log(this.doc);
+      this.check();
     }
   }
   update()
@@ -61,19 +79,32 @@ export class DoctorComponent implements OnInit {
     this.ds.updateDoctor(this.id, this.doc).subscribe((data)=>
       {
         console.log(data);
-        alert("docotr updated successfully");
+        alert("Doctor updated successfully");
         this.gotoNext();
       },
       error => {
         console.log(error);
-        alert('cannot save your data');
+        alert("can't update your data");
       });
   }
+
+  check(){
+    this.ds.checkIsAvailable(this.doc)
+      .subscribe(res => {
+        console.log(res.available);
+        if(!res.available){
+          this.save();
+        }else{
+          alert('Doctor already exists');
+        }
+      },
+      error => console.log(error));
+  }
+
   save(){
-    this.ds.addDoctor(this.doc).subscribe((data)=>
-    {
+    this.ds.addDoctor(this.doc).subscribe((data)=>{
       console.log(data);
-      alert("doctor added successfully");
+      alert("Doctor added successfully");
       this.gotoNext();
     },
     error => {
@@ -81,9 +112,17 @@ export class DoctorComponent implements OnInit {
       alert('can not save your data');
     });
   }
-  gotoNext()
-  {
+
+  gotoNext(){
     this.router.navigate(['doctorList']);
+  }
+
+  reset(){
+    this.doc.doctorName = null;
+    this.doc.doctorPhoneNO = null;
+    this.doc.doctorAddress = null;
+    this.doc.department.deptId = null;
+    this.doc.specialization.specId = null;
   }
 
 }

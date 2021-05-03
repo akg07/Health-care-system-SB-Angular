@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SpecializationService } from '../service/Specialization/specialization.service';
 import { TokenStorageService } from '../service/token-storage.service';
@@ -20,9 +20,10 @@ export class SpecializationComponent implements OnInit {
   showAdminBoard = false;
   private roles: string[];
 
-  constructor(private router: Router,private ss:SpecializationService,private route:ActivatedRoute, private tss: TokenStorageService) { }
+  constructor(private router: Router,private ss:SpecializationService,private route:ActivatedRoute, private tss: TokenStorageService, private renderer: Renderer2) { }
 
   ngOnInit(): void {
+    this.renderer.setStyle(document.body, 'background-color', '#C3E6FC');
     this.isLoggedIn = !!this.tss.getToken();
     if (this.isLoggedIn) {
       const user = this.tss.getUser();
@@ -65,7 +66,7 @@ export class SpecializationComponent implements OnInit {
     this.ss.addSpecialization(this.spec)
       .subscribe((data) => {
         console.log(data);
-        alert("patient Added successfully");
+        alert('Specialization Added successfully');
         this.gotoNext();
       },
       error => {

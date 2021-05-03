@@ -1,5 +1,5 @@
 <app-index></app-index>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="margin-top: 7.3%;">
   <a class="navbar-brand" href="#">Ward List {{ desc }}</a>
   <!-- Links -->
   <ul class="navbar-nav ml-auto">
@@ -25,7 +25,7 @@
       <th>Name</th>
       <th>Doctor</th>
       <th>Patient</th>
-      <th>ACTIONS</th>
+      <th>Contact Number</th>
     </tr>
     <tr *ngFor="let ward of wardList | wardList : search">
       <td>{{ ward.wid }}</td>
@@ -33,10 +33,11 @@
       <td>{{ ward.doctor.doctorName }}</td>
       <td>{{ ward.patient.pName }}</td>
       <td>
-        <button (click)="getWard(ward.wid)" class="btn btn-info">
+          {{ward.patient.pMobileNo}}
+        <!-- <button (click)="getWard(ward.wid)" class="btn btn-info">
           Update
         </button>
-        &nbsp;&nbsp;
+        &nbsp;&nbsp; -->
         <!-- <button (click)="deleteWard(ward.wid)" class="btn btn-danger">
           Delete
         </button> -->

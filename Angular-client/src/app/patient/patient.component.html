@@ -1,7 +1,7 @@
 <app-index></app-index>
-<div class="container">
+<div class="container" style="margin-top: 8%;">
   <div class="text-center">
-    <h1>Patient Registration Page</h1>
+    <h3>Patient Registration Page</h3>
     <p>Register the Patient</p>
   </div>
   <div class="row justify-content-center align-items-center">
@@ -14,23 +14,6 @@
         #p="ngForm"
         novalidate
       >
-        <!-- pid-->
-        <!-- <div class="form-group">
-          <label for="pid">Patient Id : </label>
-          <input
-            type="number"
-            class="form-control"
-            id="pid"
-            name="pid"
-            [(ngModel)]="pat.pid"
-            #pid="ngModel"
-            [ngClass]="{ 'is-invalid': p.submitted && pid.invalid }"
-            required
-          />
-          <div *ngIf="p.submitted && pid.invalid" class="invalid-feedback">
-            <div *ngIf="pid.errors.required">Patient Id is required</div>
-          </div>
-        </div> -->
 
         <!-- Patient Name -->
         <div class="form-group">
@@ -50,11 +33,12 @@
           </div>
         </div>
 
+        <!-- DOB -->
         <div class="form-group">
           <label for="pDob">DOB : </label>
           <input
             type="date"
-            class="form-control"
+            class="form-control txtDate"
             id="pDob"
             name="pDob"
             [(ngModel)]="pat.pDob"
@@ -75,18 +59,20 @@
             class="form-control"
             id="pMobileNo"
             name="pMobileNo"
+			required
+			minlength="10"
             [(ngModel)]="pat.pMobileNo"
             #pMobileNo="ngModel"
             [ngClass]="{ 'is-invalid': p.submitted && pMobileNo.invalid }"
-            required
           />
           <div
             *ngIf="p.submitted && pMobileNo.invalid"
             class="invalid-feedback"
           >
             <div *ngIf="pMobileNo.errors.required">Mobile no. is required</div>
+			<div *ngIf="pMobileNo.errors.minlength">Contact No must be at least 10 digit</div>
           </div>
-        </div>
+      </div>
 
         <!-- Patient Address -->
         <div class="form-group">
@@ -109,38 +95,21 @@
         <!-- Doctor -->
         <div class="form-group">
           <label for="doc">Doctor Id : </label>
-          <input
-            type="number"
-            class="form-control"
-            id="doc"
-            name="doc"
-            [(ngModel)]="pat.doc.doctorId"
-            #doc="ngModel"
-            [ngClass]="{ 'is-invalid': p.submitted && doc.invalid }"
-            required
-          />
-          <div *ngIf="p.submitted && doc.invalid" class="invalid-feedback">
-            <div *ngIf="doc.errors.required">Doctor Id is required</div>
-          </div>
+          <select name="doc" class="form-control" [(ngModel)]="pat.doc.doctorId">
+            <option [value]="doctor.doctorId" *ngFor="let doctor of docList">
+              {{doctor.doctorId}} {{doctor.doctorName}}
+            </option>
+          </select>
         </div>
 
         <!-- Test -->
         <div class="form-group">
           <label for="test">Test Id : </label>
-          <input
-            type="number"
-            class="form-control"
-            id="test"
-            name="test"
-            [(ngModel)]="pat.test.tid"
-            #test="ngModel"
-            [ngClass]="{ 'is-invalid': p.submitted && test.invalid }"
-            required
-          />
-          <!-- && ((pat.test | json) == '{}') -->
-          <div *ngIf="p.submitted && test.invalid" class="invalid-feedback">
-            <div *ngIf="test.errors.required">Test Id is required</div>
-          </div>
+          <select name="test" class="form-control" [(ngModel)]="pat.test.tid">
+            <option [value]="t.tid" *ngFor="let t of testList">
+              {{t.tid}}  {{t.tName}}
+            </option>
+          </select>
         </div>
 
         <button class="btn btn-primary btn-customized">Save</button>

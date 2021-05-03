@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { InsuranceService } from 'src/app/service/Insurance/insurance.service';
 import { TokenStorageService } from 'src/app/service/token-storage.service';
@@ -15,9 +15,11 @@ export class InsuranceListComponent implements OnInit {
   search;
   insuranceList: Insurance[];
   
-  constructor(private router: Router, private is: InsuranceService, private tss: TokenStorageService) { }
+  constructor(private router: Router, private is: InsuranceService, private tss: TokenStorageService,
+    private renderer: Renderer2) { }
 
   ngOnInit(): void {
+    this.renderer.setStyle(document.body, 'background-color', '#C1F8FF');
     if(this.tss.getToken()){
       this.getList();
     }else{
@@ -46,7 +48,6 @@ export class InsuranceListComponent implements OnInit {
     this.is.getAllInsurance()
       .subscribe((list) => {
         this.insuranceList = list;
-        console.log(list);
       },
       error => console.log(error));
   }

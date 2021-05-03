@@ -30,4 +30,12 @@ export class MedicosService {
   getMedicosById(id: number): Observable<any>{
     return this.http.get(`${this.baseUrl}/${id}`);
   }
+
+  getMedicosByPatId(id: number): Observable<any>{
+    return this.http.get(`${this.baseUrl}/pat/${id}`);
+  }
+
+  getTotal(id: number): Observable<any>{
+    return this.http.get(`${this.baseUrl}/total/${id}`);
+  }
 }

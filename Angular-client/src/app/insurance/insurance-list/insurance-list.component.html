@@ -1,5 +1,5 @@
 <app-index></app-index>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="margin-top: 7.3%;">
     <a class="navbar-brand" href="#">Insurance List {{desc}}</a>
     <!-- Links -->
     <ul class="navbar-nav ml-auto">
@@ -20,6 +20,7 @@
         <th>Insurance amount</th>
         <th>Insurance expiry date</th>
         <th>Patient</th>
+        <th>Contact No.</th>
         <th>ACTIONS</th>
       </tr>
       <tr *ngFor="let insurance of insuranceList | insuranceFilter: search">
@@ -27,6 +28,7 @@
         <td>{{ insurance.iAmt }}</td>
         <td>{{ insurance.iExpiryDate }}</td>
         <td>{{ insurance.patient.pName}}</td>
+        <td>{{ insurance.patient.pMobileNo}}</td>
         <td>
           <button (click)="getInsurance(insurance.iNo)" class="btn btn-info">
           Update

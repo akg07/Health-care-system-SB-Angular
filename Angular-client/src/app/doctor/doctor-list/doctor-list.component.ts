@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { DoctorService } from 'src/app/service/Doctor/doctor.service';
 import { TokenStorageService } from 'src/app/service/token-storage.service';
@@ -15,9 +15,11 @@ export class DoctorListComponent implements OnInit {
   search;
   docList: Doctor[];
 
-  constructor(private router: Router, private ds: DoctorService, private tss: TokenStorageService) { }
+  constructor(private router: Router, private ds: DoctorService, private tss: TokenStorageService,
+    private renderer: Renderer2) { }
 
   ngOnInit(): void {
+    this.renderer.setStyle(document.body, 'background-color', '#C1F8FF');
     if(this.tss.getToken()){
       this.getList();
     }else{
@@ -28,7 +30,6 @@ export class DoctorListComponent implements OnInit {
   getList() {
     this.ds.getAllDoctor().subscribe((list) => {
       this.docList = list;
-      console.log(list);
     },
       error => {
         console.log(error);

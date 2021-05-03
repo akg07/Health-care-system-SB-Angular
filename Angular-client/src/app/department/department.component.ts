@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DepartmentService } from '../service/department/department.service';
 import { TokenStorageService } from '../service/token-storage.service';
@@ -9,7 +9,7 @@ import { Department } from './Department';
   templateUrl: './department.component.html',
   styleUrls: ['./department.component.css']
 })
-export class DepartmentComponent implements OnInit {
+export class DepartmentComponent implements OnInit  {
 
   deptList = <any>[];
 
@@ -22,9 +22,15 @@ export class DepartmentComponent implements OnInit {
   showAdminBoard = false;
   private roles: string[];
 
-  constructor(private router: Router, private ds: DepartmentService, private route: ActivatedRoute, private ts: TokenStorageService) { }
-
-  ngOnInit(): void {
+  constructor(private router: Router,
+    private ds: DepartmentService,
+    private route: ActivatedRoute,
+    private ts: TokenStorageService,
+    private renderer: Renderer2) {
+    }
+    
+    ngOnInit(): void {
+    this.renderer.setStyle(document.body, 'background-color', '#C3E6FC');
     this.isLoggedIn = !!this.ts.getToken();
     if (this.isLoggedIn) {
       const user = this.ts.getUser();
