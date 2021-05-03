@@ -58,29 +58,37 @@ User has all access except Specialization, Department, Employee pages If you try
 
 
 ### Admin Panel
-![Image of Admin Panel-Options](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%204%20-%20Admin%20-%20panel.png)
+![Image of Admin Panel-Options](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%204%20-%20Admin%20Panel.png)
 
 
 ### Patinet List
-![Image of patient list](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%205%20-%20updated.jpg)
+![Image of patient list](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%205%20-%20Patient%20page.png)
+
+### Medicos Form
+![Image of Medicos Form](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%206%20-%20Medicos%20Form.png)
 
 ### Bill List
-![Image of Bill list](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%206.png)
+![Image of Bill list](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%207%20-%20Bill%20List.png)
 
-### Invoice
-![Image of Invoice](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%207%20-%20Invoice%20-%20updated.jpg)
+### Invoice Pr.1
+![Image of Invoice](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%208%20-%20Invoice%20part%201.png)
 
+### Invoice Pr.2
+![Image of Invoice](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%209%20-%20Invoice%20part%202.png)
+
+### Invoice PDF View
+![Image of Invoice PDF](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%2010%20-%20Invoice%20PDF.png)
 
 ### Contact Us
-![Image of Contact Us](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%208%20-%20Contact-us.png)
+![Image of Contact Us](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%2011%20-%20Contact%20Us.png)
 
 
 ### About Us
-![Image of about Us](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%209%20-%20About%20-%20us.png)
+![Image of about Us](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%2012%20-%20About%20us.png)
 
 
 ### User-role Options-panel
-![User Options](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%2012%20-%20User-panel.png)
+![User Options](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%2013%20-%20User%20Panel.png)
 
 
 ### When user is not authorised
