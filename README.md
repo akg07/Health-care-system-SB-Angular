@@ -62,7 +62,7 @@ User has all access except Specialization, Department, Employee pages If you try
 
 
 ### Patinet List
-![Image of patient list](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%205%20-%20Patient%20page.png)
+![Image of patient list](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%205%20-%20Patient%20page.jpg)
 
 ### Medicos Form
 ![Image of Medicos Form](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%206%20-%20Medicos%20Form.png)
@@ -71,13 +71,13 @@ User has all access except Specialization, Department, Employee pages If you try
 ![Image of Bill list](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%207%20-%20Bill%20List.png)
 
 ### Invoice Pr.1
-![Image of Invoice](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%208%20-%20Invoice%20part%201.png)
+![Image of Invoice](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%208%20-%20Invoice%20part%201.jpg)
 
 ### Invoice Pr.2
 ![Image of Invoice](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%209%20-%20Invoice%20part%202.png)
 
 ### Invoice PDF View
-![Image of Invoice PDF](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%2010%20-%20Invoice%20PDF.png)
+![Image of Invoice PDF](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%2010%20-%20Invoice%20PDF.jpg)
 
 ### Contact Us
 ![Image of Contact Us](https://github.com/akg07/Health-care-system-SB-Angular/blob/master/image%2011%20-%20Contact%20Us.png)
