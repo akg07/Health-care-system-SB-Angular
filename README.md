@@ -21,10 +21,13 @@
 - Make sure your mysql is running on 3306 else you have to change the port in application.properties file in spring boot
 
 ### Mandatory Commands you have to run
-
+#### Manual
 - Open your Mysql-workbench or Mysql 8.0 Command line client
 - if Database exists **Use HMSSpring2;** else create database and run Spring-boot server application and then come to this point
 - Insert Some Data into tables.
+
+#### Existed Commands
+- Goto Spring boot -> hms.sql And run this file in workbench.
 
 #### Commands
 
@@ -33,8 +36,8 @@ insert into roles values(2, 'ROLE_ADMIN');<br>
 
 insert into users values(1, '$2a$10$nuyV4m3SpBYuqzdRvQK4iO1PI9O0SkLyHQP2YB8CFksVJirzGrDT2', 'admin'); **Password : admin123** <br>
 insert into users values(2, '$2a$10$ef4yjYkFjmAjnQk/GPecK.VxaNmpe6yPfBoZh9dcW1.uzf1zFYemu', 'user');' **Password : user123** <br>
-<br>
 **This is Encrypted Password**
+<br>
 <br>
 insert into user_roles values(2, 1);<br>
 insert into user_roles values(1, 2);<br>
